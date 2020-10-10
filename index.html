@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="glider.min.css">
+</head>
+
+<body>
+    <section>
+        <h1>hey wassup</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad recusandae aliquid amet sapiente perferendis qui,
+            eos eius, id beatae quam ratione accusamus aut excepturi soluta minus reprehenderit omnis quod laudantium!
+        </p>
+    </section>
+    <section>
+        <h1 data-scroll>hey wassup</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad recusandae aliquid amet sapiente perferendis qui,
+            eos eius, id beatae quam ratione accusamus aut excepturi soluta minus reprehenderit omnis quod laudantium!
+        </p>
+    </section>
+    <section data-scroll>
+        <h1>hey wassup</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad recusandae aliquid amet sapiente perferendis qui,
+            eos eius, id beatae quam ratione accusamus aut excepturi soluta minus reprehenderit omnis quod laudantium!
+        </p>
+    </section>
+    <section>
+        <h1>hey wassup</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad recusandae aliquid amet sapiente perferendis qui,
+            eos eius, id beatae quam ratione accusamus aut excepturi soluta minus reprehenderit omnis quod laudantium!
+        </p>
+    </section>
+    <section data-scroll>
+        <div class="glider-contain multiple">
+            <div class="glider">
+                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio amet dolorum odit deserunt! Architecto, laboriosam!</div>
+                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio amet dolorum odit deserunt! Architecto, laboriosam!</div>
+                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio amet dolorum odit deserunt! Architecto, laboriosam!</div>
+                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio amet dolorum odit deserunt! Architecto, laboriosam!</div>
+            </div>
+        
+            <button aria-label="Previous" class="glider-prev">«</button>
+            <button aria-label="Next" class="glider-next">»</button>
+            <div role="tablist" id="resp-dots"></div>
+        </div>
+    </section>
+    <script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
+    <script src="glider.min.js"></script>
+    <script>
+        ScrollOut({
+            once:true,
+            threshold:.5
+        });
+    </script>
+    <script>
+    new Glider(document.querySelector('.glider'), {
+        // Mobile-first defaults
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        scrollLock: true,
+        draggable:true,
+        dots: '#resp-dots',
+        arrows: {
+            prev: '.glider-prev',
+            next: '.glider-next'
+        },
+        responsive: [
+            {
+                // screens greater than >= 775px
+                breakpoint: 775,
+                settings: {
+                    // Set to `auto` and provide item width to adjust to viewport
+                    slidesToShow: 'auto',
+                    slidesToScroll: 'auto',
+                    itemWidth: 400,
+                    duration: 0.25
+                }
+            }, {
+                // screens greater than >= 1024px
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    itemWidth: 150,
+                    duration: 0.25
+                }
+            }
+        ]
+    });
+    </script>
+</body>
+</html>
